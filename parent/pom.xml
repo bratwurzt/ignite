@@ -239,6 +239,31 @@
                     </exclusion>
                 </exclusions>
             </dependency>
+            <dependency>
+                <groupId>org.ow2.carol</groupId>
+                <artifactId>carol</artifactId>
+                <version>3.0.8</version>
+                <exclusions>
+                    <exclusion>
+                        <groupId>org.jacorb</groupId>
+                        <artifactId>jacorb</artifactId>
+                    </exclusion>
+                    <exclusion>
+                        <groupId>org.jacorb</groupId>
+                        <artifactId>jacorb-idl</artifactId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
+            <dependency>
+                <groupId>org.jacorb</groupId>
+                <artifactId>jacorb</artifactId>
+                <version>3.9</version>
+            </dependency>
+            <dependency>
+                <groupId>org.jacorb</groupId>
+                <artifactId>jacorb-idl</artifactId>
+                <version>2.3.1-jonas-patch-20110823</version>
+            </dependency>
         </dependencies>
     </dependencyManagement>
 
@@ -476,7 +501,7 @@
                                 <packages>org.apache.ignite.springdata20.repository*</packages>
                             </group>
                             <group>
-                            <title>RocketMQ integration</title>
+                                <title>RocketMQ integration</title>
                                 <packages>org.apache.ignite.stream.rocketmq*</packages>
                             </group>
                             <group>
@@ -716,10 +741,10 @@
                         <requireJavaVersion>
                             <!--Detected JDK Version: 1.8.0 is not in the allowed range [1.7,1.8),[1.8.0-40,).-->
                             <message>
-[INFO] ------------------------------------------------------------------------
-[ERROR] You are trying to compile Apache Ignite with inappropriate JDK version!
-[ERROR] Detected JDK Version: ${java.runtime.version}
-[ERROR] JDK version should be 1.7.0-* or >= 1.8.0-u40.
+                                [INFO] ------------------------------------------------------------------------
+                                [ERROR] You are trying to compile Apache Ignite with inappropriate JDK version!
+                                [ERROR] Detected JDK Version: ${java.runtime.version}
+                                [ERROR] JDK version should be 1.7.0-* or >= 1.8.0-u40.
                             </message>
                             <version>[1.7,1.8),[1.8.0-40,)</version>
                         </requireJavaVersion>
@@ -786,11 +811,11 @@
                                     <licenseFamilyName>Ignite Apache License 2.0</licenseFamilyName>
                                     <fullText>
                                         Licensed to the Apache Software Foundation (ASF) under one or more
-                                        contributor license agreements.  See the NOTICE file distributed with
+                                        contributor license agreements. See the NOTICE file distributed with
                                         this work for additional information regarding copyright ownership.
                                         The ASF licenses this file to You under the Apache License, Version 2.0
                                         (the "License"); you may not use this file except in compliance with
-                                        the License.  You may obtain a copy of the License at
+                                        the License. You may obtain a copy of the License at
 
                                         http://www.apache.org/licenses/LICENSE-2.0
 
@@ -1023,33 +1048,33 @@
                 </plugins>
             </build>
 
-              <dependencyManagement>
-				<dependencies>
-					<dependency>
-						<groupId>org.apache.hadoop</groupId>
-						<artifactId>hadoop-common</artifactId>
-						<exclusions>
-							<exclusion>
-								<!-- This dependency is not available with java 9.-->
-								<groupId>jdk.tools</groupId>
-								<artifactId>jdk.tools</artifactId>
-							</exclusion>
-						</exclusions>
-					</dependency>
- 					<dependency>
-						<groupId>org.apache.hadoop</groupId>
-						<artifactId>hadoop-common</artifactId>
-						<type>test-jar</type>
-						<exclusions>
-							<exclusion>
-								<!-- This dependency is not available with java 9.-->
-								<groupId>jdk.tools</groupId>
-								<artifactId>jdk.tools</artifactId>
-							</exclusion>
-						</exclusions>
-					</dependency>
-				</dependencies>
-			</dependencyManagement>
+            <dependencyManagement>
+                <dependencies>
+                    <dependency>
+                        <groupId>org.apache.hadoop</groupId>
+                        <artifactId>hadoop-common</artifactId>
+                        <exclusions>
+                            <exclusion>
+                                <!-- This dependency is not available with java 9.-->
+                                <groupId>jdk.tools</groupId>
+                                <artifactId>jdk.tools</artifactId>
+                            </exclusion>
+                        </exclusions>
+                    </dependency>
+                    <dependency>
+                        <groupId>org.apache.hadoop</groupId>
+                        <artifactId>hadoop-common</artifactId>
+                        <type>test-jar</type>
+                        <exclusions>
+                            <exclusion>
+                                <!-- This dependency is not available with java 9.-->
+                                <groupId>jdk.tools</groupId>
+                                <artifactId>jdk.tools</artifactId>
+                            </exclusion>
+                        </exclusions>
+                    </dependency>
+                </dependencies>
+            </dependencyManagement>
 
         </profile>
 

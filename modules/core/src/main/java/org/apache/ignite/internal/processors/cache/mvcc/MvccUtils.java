@@ -684,10 +684,10 @@ public class MvccUtils {
         GridNearTxLocal tx = tx0 != null && tx0.user() ? (GridNearTxLocal)tx0 : null;
 
         if (tx != null) {
-            if (!tx.pessimistic() || !tx.repeatableRead()) {
+            if (!tx.pessimistic()) {
                 tx.setRollbackOnly();
 
-                throw new IgniteSQLException("Only pessimistic repeatable read transactions are supported at the moment.",
+                throw new IgniteSQLException("Only pessimistic transactions are supported at the moment.",
                     IgniteQueryErrorCode.UNSUPPORTED_OPERATION);
 
             }
